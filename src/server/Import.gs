@@ -38,6 +38,10 @@ function import(entityType, offset) {
 
     sheet.appendRow(convertToRow(entity));
   }
+
+  return {
+    imported: entities.length
+  };
 }
 
 function convertToRow(obj) {
