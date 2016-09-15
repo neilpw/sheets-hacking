@@ -11,6 +11,7 @@ const PW_ENV = "api.ali-integration-theta.com";
 function onOpen(e) {
   var addonMenu = SpreadsheetApp.getUi().createAddonMenu();
   addonMenu.addItem('Import data', 'foo');
+  addonMenu.addItem('Show Sidebar', 'openImport');
 
   addonMenu.addToUi();
 }
