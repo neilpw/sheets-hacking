@@ -1,5 +1,6 @@
 var PWApi = (function(){
   function get(path, params) {
+    params.headers = {};
     params.headers['X-PW-AccessToken'] = API_KEY;
     params.headers['X-PW-Application'] = 'developer_api';
     params.headers['X-PW-UserEmail'] = USER_EMAIL;
