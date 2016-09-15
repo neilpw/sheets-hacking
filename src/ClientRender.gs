@@ -1,5 +1,5 @@
 function importData() {
-  var html = HtmlService.createHtmlOutputFromFile('Index');
+  var html = HtmlService.createHtmlOutputFromFile('index')
     .setTitle('My AWESOME Sidebar')
     .setWidth(300);
   SpreadsheetApp.getUi() // Or DocumentApp or FormApp.
