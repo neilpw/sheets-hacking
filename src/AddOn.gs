@@ -1,6 +1,6 @@
-const API_KEY = "ea249640735c2aa139e4c8f9fbd6460e";
-const USER_EMAIL = "neil@prosperworks.com";
-const PW_ENV = "api.ali-integration-theta.com";
+var API_KEY = "ea249640735c2aa139e4c8f9fbd6460e";
+var USER_EMAIL = "neil@prosperworks.com";
+var PW_ENV = "api.ali-integration-theta.com";
 
 /**
  * onOpen event handler. Initializes the add-ons menu with the options for this
