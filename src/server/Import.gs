@@ -7,7 +7,9 @@ function import() {
 
   var sheet = spreadsheet.getActiveSheet();
 
-  for (var person in people) {
+  for (var i=0; i<people.length; i++) {
+    var person = people[i];
+
     Logger.log("Person: " + person);
 
     var row = convertToRow(person);
