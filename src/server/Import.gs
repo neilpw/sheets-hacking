@@ -23,9 +23,9 @@ function import(entityType, offset) {
 
       sheet.setFrozenRows(1);
 
-      var range = sheet.getRange("1:1");
-      var protection = range.protect().setDescription("Field Keys");
-      protection.removeEditors(protection.getEditors());
+      // var range = sheet.getRange("1:1");
+      // var protection = range.protect().setDescription("Field Keys");
+      // protection.removeEditors(protection.getEditors());
     }
 
     Logger.log("Entity: " + entity);
