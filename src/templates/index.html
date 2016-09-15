@@ -8,12 +8,12 @@
     <h3>Entity Type</h3>
       <div>
         <select name="entityType">
-          <option value="contact" selected>People</option>
-          <option value="organization">Companies</option>
-          <option value="lead">Leads</option>
-          <option value="deal">Opportunity</option>
-          <option value="project">Projects</option>
-          <option value="task">Tasks</option>
+          <option value="people" selected>People</option>
+          <option value="companies">Companies</option>
+          <option value="leads">Leads</option>
+          <option value="opportunities">Opportunity</option>
+          <option value="projects">Projects</option>
+          <option value="tasks">Tasks</option>
         </select>
       </div>
     <h3>Offset</h3>
@@ -21,7 +21,7 @@
       <input type="text" name="offset" value=0>
     </div>
 
-    <button onclick="google.script.run.withSuccessHandler(onSuccess).withFailureHandler(onFailure).import()">
+    <button onclick="startImport()">
       Import
     </button>
 
@@ -29,6 +29,21 @@
 
 
     <script type="text/javascript">
+      function startImport() {
+        var entityType = document.getElementsByName('entityType')[0].value;
+        var offset = document.getElementsByName('offset')[0].value;
+
+        // TODO: Validate!
+        offset = Math.max(offset, 0);
+
+        google.script.run
+          .withSuccessHandler(onSuccess)
+          .withFailureHandler(onFailure)
+          .import(entityType, offset);
+      }
+
+      // handleResponse()
+
       function onSuccess() {
         alert('Success!');
         console.info(`Request succeeded with arguments`, arguments);
