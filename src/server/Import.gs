@@ -10,6 +10,16 @@ function import() {
   for (var i=0; i<people.length; i++) {
     var person = people[i];
 
+    if (i==0) {
+      var headerRow = [];
+
+      for(var key in person) {
+        headerRow.push(key);
+      }
+
+      sheet.appendRow(headerRow);
+    }
+
     Logger.log("Person: " + person);
 
     var row = convertToRow(person);
