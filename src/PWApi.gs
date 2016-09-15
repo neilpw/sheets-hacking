@@ -5,6 +5,12 @@ var PWApi = (function(){
     return request(path, params);
   }
 
+  function put(path, params) {
+    params.method = 'put';
+
+    return request(path, params); 
+  }
+
   function post(path, params) {
     params.method = 'post';
 
@@ -32,6 +38,7 @@ var PWApi = (function(){
 
   return {
     get: get,
+    put: put,
     post: post
   };
 
