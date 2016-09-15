@@ -7,6 +7,8 @@ function import() {
 
   var sheet = spreadsheet.getActiveSheet();
 
+  sheet.clearContents();
+
   for (var i=0; i<people.length; i++) {
     var person = people[i];
 
@@ -18,6 +20,7 @@ function import() {
       }
 
       sheet.appendRow(headerRow);
+      sheet.setFrozenRows(1);
     }
 
     Logger.log("Person: " + person);
