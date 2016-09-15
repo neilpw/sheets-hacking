@@ -38,7 +38,7 @@ var PWApi = (function(){
 
     Logger.log(response);
 
-    return response;
+    return JSON.parse(response.getContentText());
   }
 
   return {
