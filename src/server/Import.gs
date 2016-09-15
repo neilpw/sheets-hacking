@@ -1,6 +1,8 @@
 function import() {
   var people = PWApi.post('people/search', {});
 
+  Logger.log("People length: " + people.length);
+
   var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
 
   var sheet = spreadsheet.getActiveSheet();
