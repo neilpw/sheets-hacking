@@ -1,7 +1,9 @@
-function import() {
-  var people = PWApi.post('people/search', {});
+function import(entityType, offset) {
+  offset ||= 0;
+  
+  var entities = PWApi.post(entityType + "search", { 'offset' : offset });
 
-  Logger.log("People length: " + people.length);
+  Logger.log("Entities length: " + entities.length);
 
   var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
 
@@ -9,13 +11,13 @@ function import() {
 
   sheet.clearContents();
 
-  for (var i=0; i<people.length; i++) {
-    var person = people[i];
+  for (var i=0; i<entities.length; i++) {
+    var entity = entities[i];
 
     if (i==0) {
       var headerRow = [];
 
-      for(var key in person) {
+      for(var key in entity) {
         headerRow.push(key);
       }
 
@@ -28,13 +30,13 @@ function import() {
       protection.removeEditors(protection.getEditors());
     }
 
-    Logger.log("Person: " + person);
+    Logger.log("Entity: " + entity);
 
-    var row = convertToRow(person);
+    var row = convertToRow(entity);
 
     Logger.log("Row: " + row);
 
-    sheet.appendRow(convertToRow(person));
+    sheet.appendRow(convertToRow(entity));
   }
 }
 
