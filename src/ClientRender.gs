@@ -1,4 +1,4 @@
-function importData() {
+function openImport() {
   var html = HtmlService.createHtmlOutputFromFile('index')
     .setTitle('My AWESOME Sidebar')
     .setWidth(300);
