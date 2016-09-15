@@ -1,18 +1,24 @@
 var PWApi = (function(){
-  function get(path, params) {
+  function get(path) {
     params.method = 'get';
 
-    return request(path, params);
+    return request(path, {});
   }
 
-  function put(path, params) {
+  function put(path, payload) {
+    var params = {};
+
     params.method = 'put';
+    params.payload = JSON.stringify(payload);
 
     return request(path, params); 
   }
 
-  function post(path, params) {
+  function post(path, payload) {
+    var params = {};
+
     params.method = 'post';
+    params.payload = JSON.stringify(payload);
 
     return request(path, params); 
   }
@@ -23,7 +29,6 @@ var PWApi = (function(){
     params.headers['X-PW-Application'] = 'developer_api';
     params.headers['X-PW-UserEmail'] = USER_EMAIL;
 
-    params.method = 'get';
     params.dataType = 'json';
     params.contentType = 'application/json';
 
