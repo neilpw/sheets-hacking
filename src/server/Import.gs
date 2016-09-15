@@ -1,7 +1,5 @@
 function import(entityType, offset) {
-  offset ||= 0;
-  
-  var entities = PWApi.post(entityType + "search", { 'offset' : offset });
+  var entities = PWApi.post(entityType + "/search", { 'offset' : offset });
 
   Logger.log("Entities length: " + entities.length);
 
