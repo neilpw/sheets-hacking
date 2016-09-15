@@ -7,7 +7,7 @@ function import(entityType, offset) {
 
   var sheet = spreadsheet.getActiveSheet();
 
-  sheet.clearContents();
+  sheet.clear();
 
   for (var i=0; i<entities.length; i++) {
     var entity = entities[i];
