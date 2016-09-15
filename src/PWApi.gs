@@ -14,4 +14,8 @@ var PWApi = (function(){
 
     Logger.log(response);
   }
+
+  return {
+    get: get
+  };
 })();
