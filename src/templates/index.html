@@ -20,11 +20,23 @@
     <div>
       <input type="text" name="offset" value=0>
     </div>
+
+    <button onclick="google.script.run.withSuccessHandler(onSuccess).withFailureHandler(onFailure).import()">
+      Import
+    </button>
+
     <input type="button" value="Close" onclick="google.script.host.close()" />
 
 
     <script type="text/javascript">
-      alert('JS Works');
+      function onSuccess() {
+        alert('Success!');
+        console.info(`Request succeeded with arguments`, arguments);
+      }
+      function onFailure() {
+        alert('Failure!');
+        console.error(`Request failed with arguments`, arguments);
+      }
     </script>
   </body>
 </html>
