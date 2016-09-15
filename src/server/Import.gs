@@ -23,10 +23,16 @@ function import(entityType, offset) {
 
       sheet.setFrozenRows(1);
 
-      // var range = sheet.getRange("1:1");
-      // var protection = range.protect().setDescription("Field Keys");
-      // protection.removeEditors(protection.getEditors());
-    }
+      // Remove all range protections in the spreadsheet that the user has permission to edit.
+      var ss = SpreadsheetApp.getActive();
+      var protections = ss.getProtections(SpreadsheetApp.ProtectionType.RANGE);
+      for (var i = 0; i < protections.length; i++) {
+        var protection = protections[i];
+        if (protection.canEdit()) {
+          protection.remove();
+        }
+      }
+     }
 
     Logger.log("Entity: " + entity);
 
