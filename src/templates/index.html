@@ -4,8 +4,27 @@
     <base target="_top">
   </head>
   <body>
-    Hello, World!
-    <input type="button" value="Close"
-        onclick="google.script.host.close()" />
+    <h1>What would you like to import?</h1>
+    <h3>Entity Type</h3>
+      <div>
+        <select name="entityType">
+          <option value="contact" selected>People</option>
+          <option value="organization">Companies</option>
+          <option value="lead">Leads</option>
+          <option value="deal">Opportunity</option>
+          <option value="project">Projects</option>
+          <option value="task">Tasks</option>
+        </select>
+      </div>
+    <h3>Offset</h3>
+    <div>
+      <input type="text" name="offset" value=0>
+    </div>
+    <input type="button" value="Close" onclick="google.script.host.close()" />
+
+
+    <script type="text/javascript">
+      alert('JS Works');
+    </script>
   </body>
 </html>
